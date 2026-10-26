@@ -4,6 +4,13 @@
 !/.gitattributes
 !/README.md
 !/CHANGELOG.md
+!/docs/
+/docs/*
+!/docs/images/
+/docs/images/*
+!/docs/images/performance.png
+!/docs/images/deepseek.png
+!/docs/images/music.png
 !/independent-clock/
 /independent-clock/*
 !/independent-clock/*.cs

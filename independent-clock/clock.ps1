@@ -312,7 +312,7 @@ function New-MonitorImage([int]$Width,[int]$Height) {
         $cpuTemperature+=[char]0xB0+'C)'
         $cpuTempFont=[Drawing.Font]::new('Tahoma',11,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
         $detailFormat=[Drawing.StringFormat]::new();$detailFormat.Alignment=[Drawing.StringAlignment]::Far;$detailFormat.FormatFlags=[Drawing.StringFormatFlags]::NoWrap
-        try{$g.DrawString($cpuTemperature,$cpuTempFont,$ink,[Drawing.RectangleF]::new(92,[single](48*$scale),56,18),$detailFormat)}finally{$cpuTempFont.Dispose();$detailFormat.Dispose()}
+        try{$g.DrawString($cpuTemperature,$cpuTempFont,$muted,[Drawing.RectangleF]::new(92,[single](48*$scale),56,18),$detailFormat)}finally{$cpuTempFont.Dispose();$detailFormat.Dispose()}
         $g.DrawString($ram,$ramFont,$ink,172,[single](45*$scale))
         if($null -ne $s.MemoryPercent){
             $memory='({0:F1}/{1:0.#}G)' -f $s.UsedMemoryGiB,$s.TotalMemoryGiB
@@ -347,7 +347,7 @@ function New-MonitorImage([int]$Width,[int]$Height) {
             $detailFormat=[Drawing.StringFormat]::new();$detailFormat.Alignment=[Drawing.StringAlignment]::Far;$detailFormat.FormatFlags=[Drawing.StringFormatFlags]::NoWrap
             try{
                 if($g.MeasureString($detail,$detailFont).Width -gt 56){$detailFont.Dispose();$detailFont=[Drawing.Font]::new('Tahoma',9,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)}
-                $g.DrawString($detail,$detailFont,$ink,[Drawing.RectangleF]::new(($x+82),[single](83*$scale),56,18),$detailFormat)
+                $g.DrawString($detail,$detailFont,$muted,[Drawing.RectangleF]::new(($x+82),[single](83*$scale),56,18),$detailFormat)
             }finally{$detailFont.Dispose();$detailFormat.Dispose()}
             $g.FillRectangle($track,$x,[single](102*$scale),138,[single](7*$scale))
             if($null -ne $value){$g.FillRectangle($accent,$x,[single](102*$scale),[single](138*$smoothed/100.0),[single](7*$scale))}
@@ -615,7 +615,7 @@ $select = [Windows.Forms.ComboBox]::new()
 $select.SetBounds(20,20,340,28)
 $select.DropDownStyle = 'DropDownList'
 $view = [Windows.Forms.ComboBox]::new(); $view.SetBounds(20,20,510,28); $view.DropDownStyle='DropDownList'
-$themeNames=@((-join ([char[]]@(0x6027,0x80FD,0x76D1,0x63A7,0x4E3B,0x9898))),(-join ([char[]]@(0x9ED8,0x8BA4,0x65F6,0x949F,0x4E3B,0x9898))),('DeepSeek '+[char]0x65F6+[char]0x949F),('ChatGPT '+[char]0x65F6+[char]0x949F+'+'+[char]0x4F59+[char]0x989D),'bongocat','战术频谱');$themeModes=@('Monitor','Clock','DeepSeek','ChatGPT','BongoCat','Spectrum')
+$themeNames=@((-join ([char[]]@(0x6027,0x80FD,0x76D1,0x63A7,0x4E3B,0x9898))),(-join ([char[]]@(0x9ED8,0x8BA4,0x65F6,0x949F,0x4E3B,0x9898))),('DeepSeek '+[char]0x65F6+[char]0x949F),('ChatGPT '+[char]0x65F6+[char]0x949F+'+'+[char]0x4F59+[char]0x989D),'bongocat','音乐律动');$themeModes=@('Monitor','Clock','DeepSeek','ChatGPT','BongoCat','Spectrum')
 $view.Items.AddRange($themeNames);$view.SelectedIndex=[array]::IndexOf($themeModes,$Mode)
 $quotaToggle=[Windows.Forms.CheckBox]::new();$quotaToggle.Text=$quotaLabels.QueryBalance;$quotaToggle.SetBounds(380,65,160,35)
 $quotaToggle.Checked=$script:queryChatGPTBalance;$quotaToggle.Visible=($Mode -eq 'ChatGPT')

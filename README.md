@@ -1,6 +1,6 @@
 # Hub PC Monitor
 
-带屏幕 USB Hub 的独立 Windows 上位机，当前版本 **v0.5.2**。
+带屏幕 USB Hub 的独立 Windows 上位机，当前版本 **v0.5.3**。
 
 已实测佳点 V1PRO / V1P（320×170），预留 V2（320×240）布局。无需让厂商上位机保持运行；使用时请先退出其他占用设备的控制程序。
 
@@ -9,8 +9,16 @@
 - 性能监控：CPU 占用与温度、RAM 使用、CPU 频率区间百分比及 GHz、GPU 占用及温度、配置与输入电压。
 - 默认时钟、DeepSeek 时钟、ChatGPT 时钟＋可选额度查询。
 - BongoCat 画面映射：后台捕获、变化区域发送、可选精度优化；需自行安装 BongoCat。
-- 战术音乐频谱：默认播放设备回环采集，24 段频谱，无需麦克风。
+- 音乐律动：默认播放设备回环采集，24 段频谱，无需麦克风。
 - 屏幕旋转、断线重连、托盘运行、可选登录自启与温度采集服务。
+
+## 主题预览
+
+| 性能监控 | DeepSeek 时钟 | 音乐律动 |
+| --- | --- | --- |
+| <img src="docs/images/performance.png" width="260" alt="性能监控主题预览"> | <img src="docs/images/deepseek.png" width="260" alt="DeepSeek 时钟主题预览"> | <img src="docs/images/music.png" width="260" alt="音乐律动主题预览"> |
+
+预览由实际主题绘制代码生成；指标和频谱为示例，实际显示随电脑状态变化。
 
 ## 普通用户
 
