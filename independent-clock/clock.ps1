@@ -311,15 +311,16 @@ function New-MonitorImage([int]$Width,[int]$Height) {
         $cpuTemperature=if($null -ne $script:temperatures.Cpu){'({0:F0}' -f $script:temperatures.Cpu}else{'(--'}
         $cpuTemperature+=[char]0xB0+'C)'
         $cpuTempFont=[Drawing.Font]::new('Tahoma',11,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
-        try{$cpuTempX=[single][Math]::Round(10+$g.MeasureString($cpu,$ramFont).Width);$g.DrawString($cpuTemperature,$cpuTempFont,$ink,$cpuTempX,[single](48*$scale))}finally{$cpuTempFont.Dispose()}
+        $detailFormat=[Drawing.StringFormat]::new();$detailFormat.Alignment=[Drawing.StringAlignment]::Far;$detailFormat.FormatFlags=[Drawing.StringFormatFlags]::NoWrap
+        try{$g.DrawString($cpuTemperature,$cpuTempFont,$ink,[Drawing.RectangleF]::new(92,[single](48*$scale),56,18),$detailFormat)}finally{$cpuTempFont.Dispose();$detailFormat.Dispose()}
         $g.DrawString($ram,$ramFont,$ink,172,[single](45*$scale))
         if($null -ne $s.MemoryPercent){
             $memory='({0:F1}/{1:0.#}G)' -f $s.UsedMemoryGiB,$s.TotalMemoryGiB
-            $memoryX=172+$g.MeasureString($ram,$ramFont).Width+1
-            while($g.MeasureString($memory,$small).Width -gt (312-$memoryX) -and $small.Size -gt 9){
+            while($g.MeasureString($memory,$small).Width -gt 56 -and $small.Size -gt 9){
                 $size=$small.Size-1;$small.Dispose();$small=[Drawing.Font]::new('Tahoma',[single]$size,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
             }
-            $g.DrawString($memory,$small,$muted,[single][Math]::Round($memoryX),[single](49*$scale))
+            $detailFormat=[Drawing.StringFormat]::new();$detailFormat.Alignment=[Drawing.StringAlignment]::Far;$detailFormat.FormatFlags=[Drawing.StringFormatFlags]::NoWrap
+            try{$g.DrawString($memory,$small,$muted,[Drawing.RectangleF]::new(254,[single](49*$scale),56,18),$detailFormat)}finally{$detailFormat.Dispose()}
         }
         $g.FillRectangle($track,10,[single](65*$scale),138,[single](7*$scale))
         $g.FillRectangle($track,172,[single](65*$scale),138,[single](7*$scale))
@@ -342,12 +343,12 @@ function New-MonitorImage([int]$Width,[int]$Height) {
                 Set-Variable -Scope Script -Name $variable -Value $smoothed
             }
             $g.DrawString($text,$ramFont,$ink,$x,[single](79*$scale))
-            $detailX=[single][Math]::Round($x+$g.MeasureString($text,$ramFont).Width)
             $detailFont=[Drawing.Font]::new('Tahoma',10,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
+            $detailFormat=[Drawing.StringFormat]::new();$detailFormat.Alignment=[Drawing.StringAlignment]::Far;$detailFormat.FormatFlags=[Drawing.StringFormatFlags]::NoWrap
             try{
-                if($g.MeasureString($detail,$detailFont).Width -gt ($x+138-$detailX)){$detailFont.Dispose();$detailFont=[Drawing.Font]::new('Tahoma',9,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)}
-                $g.DrawString($detail,$detailFont,$ink,$detailX,[single](83*$scale))
-            }finally{$detailFont.Dispose()}
+                if($g.MeasureString($detail,$detailFont).Width -gt 56){$detailFont.Dispose();$detailFont=[Drawing.Font]::new('Tahoma',9,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)}
+                $g.DrawString($detail,$detailFont,$ink,[Drawing.RectangleF]::new(($x+82),[single](83*$scale),56,18),$detailFormat)
+            }finally{$detailFont.Dispose();$detailFormat.Dispose()}
             $g.FillRectangle($track,$x,[single](102*$scale),138,[single](7*$scale))
             if($null -ne $value){$g.FillRectangle($accent,$x,[single](102*$scale),[single](138*$smoothed/100.0),[single](7*$scale))}
         }
