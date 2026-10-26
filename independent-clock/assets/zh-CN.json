@@ -1,0 +1,32 @@
+{
+  "Plan": "套餐",
+  "QueryBalance": "查询 ChatGPT 余额",
+  "ShortRemaining": "{0}剩余 {1}%",
+  "WeekRemaining": "本周剩余 {0}%",
+  "QuotaUnknown": "额度 --",
+  "WeekUnknown": "本周 --",
+  "Primary": "短周期剩余",
+  "Secondary": "周额度剩余",
+  "Remaining": "{0}：{1}%（{2}）",
+  "UnknownRemaining": "{0}：--",
+  "PlanLine": "套餐：{0}",
+  "Minute": "分钟",
+  "Hour": "小时",
+  "Day": "天",
+  "Cached": "（缓存）",
+  "Waiting": "正在读取额度",
+  "Codex not found": "未找到 Codex",
+  "Quota query timed out": "额度查询超时",
+  "Codex initialization failed": "Codex 初始化失败",
+  "Quota unavailable": "额度暂不可用",
+  "Unknown": "暂不可用",
+  "Plans": {
+    "plus": "Plus",
+    "pro": "Pro",
+    "free": "免费版",
+    "team": "团队版",
+    "business": "商业版",
+    "enterprise": "企业版",
+    "edu": "教育版"
+  }
+}

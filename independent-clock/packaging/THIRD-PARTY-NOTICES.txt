@@ -1,0 +1,10 @@
+Hub PC Monitor includes an unmodified dynamically loaded libusb-1.0.dll from the user's existing local device software installation.
+
+libusb is licensed under LGPL-2.1-or-later. See COPYING-libusb.txt.
+Project and corresponding source: https://github.com/libusb/libusb
+The DLL remains a separate file under native/ and may be replaced with a compatible version.
+This package does not include the manufacturer's application or firmware.
+
+Windows PowerShell, .NET Framework and Windows APIs are system prerequisites and are not redistributed by this installer.
+
+Temperature sensing uses the unmodified LibreHardwareMonitorLib 0.9.6 and dependencies from the existing local installation. Official source: https://github.com/LibreHardwareMonitor/LibreHardwareMonitor . MPL-2.0 and dependency notices are provided under sensors/licenses. The official, unmodified PawnIO 2.2.0 installer is bundled under sensors/driver. Upstream releases: https://github.com/namazso/PawnIO.Setup . Source and license: https://github.com/namazso/PawnIO (GPL-2.0-or-later with linking exception); modules: https://github.com/namazso/PawnIO.Modules . Installation requires explicit selection and Windows administrator approval.

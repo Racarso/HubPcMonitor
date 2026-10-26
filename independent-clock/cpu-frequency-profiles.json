@@ -1,0 +1,15 @@
+{
+  "SchemaVersion": 1,
+  "Range": "BaseGhz=0%, MaxTurboGhz=100%, clamped",
+  "VerifiedOn": "2026-10-26",
+  "Profiles": [
+    {"Model":"Intel Core i7-4790","Pattern":"\\bIntel\\b.*\\bi7-4790(?![A-Za-z0-9])","BaseGhz":3.6,"MaxTurboGhz":4.0,"Source":"https://www.intel.com/content/www/us/en/products/sku/80806/intel-core-i74790-processor-8m-cache-up-to-4-00-ghz/specifications.html"},
+    {"Model":"Intel Core i7-4790K","Pattern":"\\bIntel\\b.*\\bi7-4790K(?![A-Za-z0-9])","BaseGhz":4.0,"MaxTurboGhz":4.4,"Source":"https://community.intel.com/t5/Mobile-and-Desktop-Processors/i7-4790k-200W-Power-Ponsumption/td-p/722797"},
+    {"Model":"Intel Core i5-12400F","Pattern":"\\bIntel\\b.*\\bi5-12400F(?![A-Za-z0-9])","BaseGhz":2.5,"MaxTurboGhz":4.4,"Source":"https://www.intel.com/content/www/us/en/products/sku/134587/intel-core-i512400f-processor-18m-cache-up-to-4-40-ghz/specifications.html"},
+    {"Model":"Intel Core i7-12700K","Pattern":"\\bIntel\\b.*\\bi7-12700K(?![A-Za-z0-9])","BaseGhz":3.6,"MaxTurboGhz":5.0,"Source":"https://www.intel.co.jp/content/www/jp/ja/products/sku/134594/intel-core-i712700k-processor-25m-cache-up-to-5-00-ghz/specifications.html"},
+    {"Model":"Intel Core i7-14700K","Pattern":"\\bIntel\\b.*\\bi7-14700K(?![A-Za-z0-9])","BaseGhz":3.4,"MaxTurboGhz":5.6,"Source":"https://www.intel.com/content/www/us/en/products/sku/236783/intel-core-i7-processor-14700k-33m-cache-up-to-5-60-ghz/specifications.html"},
+    {"Model":"AMD Ryzen 5 7600","Pattern":"\\bAMD\\b.*\\bRyzen\\s+5\\s+7600(?![A-Za-z0-9])","BaseGhz":3.8,"MaxTurboGhz":5.1,"Source":"https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html"},
+    {"Model":"AMD Ryzen 7 7800X3D","Pattern":"\\bAMD\\b.*\\bRyzen\\s+7\\s+7800X3D(?![A-Za-z0-9])","BaseGhz":4.2,"MaxTurboGhz":5.0,"Source":"https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html"},
+    {"Model":"AMD Ryzen 7 9700X","Pattern":"\\bAMD\\b.*\\bRyzen\\s+7\\s+9700X(?![A-Za-z0-9])","BaseGhz":3.8,"MaxTurboGhz":5.5,"Source":"https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"}
+  ]
+}
