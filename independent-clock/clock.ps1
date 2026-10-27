@@ -131,6 +131,7 @@ function New-ClockImage([int]$Width, [int]$Height) {
     $format = [Drawing.StringFormat]::new()
     $format.Alignment = [Drawing.StringAlignment]::Center
     $format.LineAlignment = [Drawing.StringAlignment]::Center
+    $dateBrush=[Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml('#77838D'))
     try {
         $graphics.Clear([Drawing.Color]::FromArgb(13,17,21))
         $now = Get-Date
@@ -149,9 +150,9 @@ function New-ClockImage([int]$Width, [int]$Height) {
         $graphics.TextRenderingHint = [Drawing.Text.TextRenderingHint]::AntiAliasGridFit
         $graphics.DrawString($now.ToString('HH:mm:ss'), $large, $accent,
             [Drawing.RectangleF]::new(0, [single]($Height * 0.17), $Width, [single]($Height * 0.48)), $format)
-        $graphics.DrawString($now.ToString('yyyy-MM-dd  ddd'), $small, $muted,
+        $graphics.DrawString($now.ToString('yyyy-MM-dd  ddd'), $small, $dateBrush,
             [Drawing.RectangleF]::new(0, [single]($Height * 0.66), $Width, [single]($Height * 0.22)), $format)
-    } finally { $format.Dispose(); $large.Dispose(); $small.Dispose(); $graphics.Dispose() }
+    } finally { $dateBrush.Dispose(); $format.Dispose(); $large.Dispose(); $small.Dispose(); $graphics.Dispose() }
     return $image
 }
 function New-DeepSeekImage([int]$Width,[int]$Height) {
