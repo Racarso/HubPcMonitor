@@ -131,7 +131,7 @@ function New-ClockImage([int]$Width, [int]$Height) {
     $format = [Drawing.StringFormat]::new()
     $format.Alignment = [Drawing.StringAlignment]::Center
     $format.LineAlignment = [Drawing.StringAlignment]::Center
-    $dateBrush=[Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml('#77838D'))
+    $dateBrush=[Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml('#ECEFF1'))
     try {
         $graphics.Clear([Drawing.Color]::FromArgb(13,17,21))
         $now = Get-Date

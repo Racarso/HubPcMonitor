@@ -1,4 +1,4 @@
-# Hub PC Monitor v0.5.4
+# Hub PC Monitor v0.5.5
 
 Windows x64 · 2026-10-27 · 性能主题更新版
 
@@ -6,7 +6,7 @@ Windows x64 · 2026-10-27 · 性能主题更新版
 
 ## 安装与使用
 
-1. 解压整个压缩包，运行 `HubPcMonitor-v0.5.4-Setup.exe`。
+1. 解压整个压缩包，运行 `HubPcMonitor-v0.5.5-Setup.exe`。
 2. 安装界面可选择登录 Windows 后自动启动、安装后启动。CPU 温度组件需要管理员确认，会安装 PawnIO 和后台传感器服务；不需要温度可取消该项。
 3. 完全退出佳点控制工具和其他占用此 Hub 的程序，包括托盘图标。插好 Hub。
 4. 双击系统托盘里的 Hub PC Monitor 图标打开主界面。通常会自动连接。
